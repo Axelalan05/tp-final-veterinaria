@@ -275,7 +275,7 @@ export const useTurnoStore = defineStore("turno", () => {
       console.log(`🔄 Cambiando estado del turno ID ${id} a: ${estado}`);
       const response = await ApiService.updateTurnoEstado(id, estado);
 
-      const updatedTurno = response.data || response;
+      const { turno: updatedTurno } = response.data || response;
 
       // Actualizar en la lista principal
       const index = turnos.value.findIndex((t) => t.id === id);
